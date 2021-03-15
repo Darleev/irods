@@ -7,8 +7,8 @@ jobs:
       - name: Install iRODS Externals
         uses: nick-invision/retry@v2
         with:
-          timeout_minutes: 3
-          max_attempts: 10
+          timeout_minutes: 1
+          max_attempts: 20
           command: |
               wget -qO - https://unstable.irods.org/irods-unstable-signing-key.asc | sudo apt-key add -
               echo "deb [arch=amd64] https://unstable.irods.org/apt/ $(lsb_release -sc) main" | sudo tee /etc/apt/sources.list.d/renci-irods-unstable.list
