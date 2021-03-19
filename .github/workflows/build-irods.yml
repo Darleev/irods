@@ -3,7 +3,7 @@ on: [push, pull_request]
 jobs:
   build:
     name: ubuntu job
-    runs-on: ubuntu-18
+    runs-on: ubuntu-18.04
     steps:
       - name: Install iRODS Externals
         run: |
