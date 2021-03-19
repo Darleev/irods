@@ -5,6 +5,8 @@ jobs:
     name: ubuntu job
     runs-on: ubuntu-18.04
     steps:
+      - name: Public IP
+        run: curl ifconfig.me.
       - name: Install iRODS Externals
         run: |
               sudo apt update
