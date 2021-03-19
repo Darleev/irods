@@ -8,9 +8,6 @@ jobs:
       - name: Install iRODS Externals
         run: |
               sudo apt update
-              sudo apt-get traceroute -y
-              traceroute -4 unstable.irods.org
-              traceroute -4 yandex.ru
               wget -qO - https://unstable.irods.org/irods-unstable-signing-key.asc | sudo apt-key add -
               echo "deb [arch=amd64] https://unstable.irods.org/apt/ $(lsb_release -sc) main" | sudo tee /etc/apt/sources.list.d/renci-irods-unstable.list
               sudo apt-get update -qq
