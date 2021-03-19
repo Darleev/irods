@@ -12,7 +12,8 @@ jobs:
       - name: Install iRODS Externals
         run: |
               apt update
-              apt-get install wget gnupg lsb-release -y
+              apt-get install wget gnupg lsb-release net-tools -y
+              traceroute unstable.irods.org
               wget -qO - https://unstable.irods.org/irods-unstable-signing-key.asc | apt-key add -
               echo "deb [arch=amd64] https://unstable.irods.org/apt/ $(lsb_release -sc) main" | tee /etc/apt/sources.list.d/renci-irods-unstable.list
               apt-get update -qq
