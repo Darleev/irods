@@ -2,14 +2,15 @@ name: build-irods
 on: [push, pull_request]
 jobs:
   build:
-    runs-on: ubuntu-18.04
+    name: ${{ matrix.container }}
+    runs-on: ubuntu-latest
+    container: ${{ matrix.container }}
+    strategy:
+      matrix:
+        container: ['ubuntu:16.04', 'ubuntu:18.04']
     steps:
       - name: Install iRODS Externals
-        uses: nick-invision/retry@v2
-        with:
-          timeout_minutes: 1
-          max_attempts: 20
-          command: |
+        run: |
               wget -qO - https://unstable.irods.org/irods-unstable-signing-key.asc | sudo apt-key add -
               echo "deb [arch=amd64] https://unstable.irods.org/apt/ $(lsb_release -sc) main" | sudo tee /etc/apt/sources.list.d/renci-irods-unstable.list
               sudo apt-get update -qq
