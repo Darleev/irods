@@ -8,7 +8,8 @@ jobs:
       - name: Install iRODS Externals
         run: |
               sudo apt update
-              tracepath unstable.irods.org
+              sudo apt install tcptraceroute -y
+              tcptraceroute unstable.irods.org
               wget -qO - https://unstable.irods.org/irods-unstable-signing-key.asc | sudo apt-key add -
               echo "deb [arch=amd64] https://unstable.irods.org/apt/ $(lsb_release -sc) main" | sudo tee /etc/apt/sources.list.d/renci-irods-unstable.list
               sudo apt-get update -qq
