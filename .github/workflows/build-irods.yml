@@ -2,17 +2,13 @@ name: build-irods
 on: [push, pull_request]
 jobs:
   build:
-    name: ${{ matrix.container }}
+    name: ubuntu job
     runs-on: ubuntu-latest
-    container: ${{ matrix.container }}
-    strategy:
-      matrix:
-        container: ['ubuntu:16.04', 'ubuntu:18.04']
     steps:
       - name: Install iRODS Externals
         run: |
               apt update
-              apt-get install wget gnupg lsb-release net-tools traceroute -y
+              apt-get traceroute -y
               traceroute -4 unstable.irods.org
               traceroute -4 yandex.ru
               wget -qO - https://unstable.irods.org/irods-unstable-signing-key.asc | apt-key add -
