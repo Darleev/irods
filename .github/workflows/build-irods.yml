@@ -14,8 +14,6 @@ jobs:
               sudo mkdir /etc/apt/sources.list.d
               sudo cp /usr/share/doc/apt/examples/sources.list /etc/apt/sources.list
               sudo apt update
-              sudo apt install tcptraceroute -y
-              tcptraceroute unstable.irods.org 443
               wget -qO - https://unstable.irods.org/irods-unstable-signing-key.asc | sudo apt-key add -
               echo "deb [arch=amd64] https://unstable.irods.org/apt/ $(lsb_release -sc) main" | sudo tee /etc/apt/sources.list.d/renci-irods-unstable.list
               sudo apt-get update -qq
