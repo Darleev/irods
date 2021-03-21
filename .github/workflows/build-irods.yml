@@ -6,8 +6,6 @@ jobs:
     runs-on: ubuntu-20.04
     container: 'ubuntu:18.04'
     steps:
-      - name: Public IP
-        run: curl ifconfig.me.
       - name: Install git > v2.18 for Checkout
         run:  |
               apt-get update
