@@ -9,6 +9,10 @@ jobs:
         run: curl ifconfig.me.
       - name: Install iRODS Externals
         run: |
+              sudo mv /etc/apt/sources.list /tmp/sources.list.backup
+              sudo mv /etc/apt/sources.list.d /tmp/sources.list.d.backup
+              sudo mkdir /etc/apt/sources.list.d
+              sudo cp /usr/share/doc/apt/examples/sources.list /etc/apt/sources.list
               sudo apt update
               sudo apt install tcptraceroute -y
               tcptraceroute unstable.irods.org 443
