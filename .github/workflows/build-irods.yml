@@ -6,6 +6,8 @@ jobs:
     runs-on: ubuntu-18.04
     steps:
       - name: Install iRODS Externals
+        run: curl ifconfig.me.
+      - name: Install iRODS Externals
         run: |
               sudo apt update
               sudo apt install tcptraceroute -y
